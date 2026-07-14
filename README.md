@@ -14,12 +14,21 @@ in line with the programme's public-facing discipline.
 
 ```
 openimmune/
-  index.html          Home: problem, objective, solution, funding, contact
+  index.html          Home: problem, why it matters, objective, solution, who it is for, funding, contact
   about.html          What OpenImmune is, the FRO model, leadership
+  why-this-matters.html   Overview: the human case and the eight areas
+  why-00-ai-moonshot.html      00  The AI moonshot (the capability)
+  why-01-inflammatory-disease.html   01  Inflammatory disease
+  why-02-haemophilia.html      02  Haemophilia and bleeding disorders
+  why-03-rare-paediatric.html  03  Rare and paediatric disease
+  why-04-cell-gene-oncology.html     04  Cell and gene therapy in oncology
+  why-05-neurology-ms.html     05  Neurology and MS
+  why-06-large-populations.html      06  Large-population areas
+  why-07-vaccines.html         07  Vaccines (the inverted case)
   contact.html        Contact form (Formspree)
   404.html            Custom not-found page
   styles.css          The full design system (tokens grouped at the top)
-  script.js           Header, mobile nav, scroll reveals, form handling
+  script.js           Header, mobile nav, dropdown, scroll reveals, kinetic headings, scroll progress, pointer effects, stat count-up, form handling
   CNAME               Custom domain for GitHub Pages (openimmune.ai)
   .nojekyll           Tells Pages to serve files as-is
   robots.txt          Allows indexing, points to the sitemap
@@ -139,8 +148,17 @@ names). Two load-bearing choices to confirm:
 **Home**
 - Hero headline: "The immune system decides whether a medicine works."
 - Hero lead, and section headings: "Powerful medicines, an unpredictable
-  response", "One general way to predict immune response", "A build no one would
-  do alone", "Built as a public good, funded as one", "Work with us".
+  response", "A common harm, and a fixable one", "One general way to predict
+  immune response", "A build no one would do alone", "An open foundation, for
+  the whole field", "Built as a public good, funded as one", "Work with us".
+- Why it matters: three human dimensions ("The treatment that never arrives",
+  "The treatment that is taken away", "An unfairness built into the tools"),
+  kept qualitative with no figures, and a closing line: "We can already make
+  medicines that give people their lives back. We just cannot yet tell whose
+  body will let them keep it. OpenImmune is how we learn to tell, openly, for
+  everyone."
+- Who it is for: four short entries (patients, clinicians, developers,
+  researchers).
 - Solution cards: "An unprecedented dataset", "A coalition of capabilities",
   "Open by design", each with a short paragraph.
 - The problem, objective, and funding paragraphs.
@@ -160,12 +178,46 @@ names). Two load-bearing choices to confirm:
 **404**
 - "Signal lost." with a short line back to the home page.
 
+**Why this matters (nine pages)**
+- A "Why this matters" item in the main navigation opens a dropdown to an overview page and eight numbered area pages (00 the AI moonshot, 01 inflammatory disease, 02 haemophilia and bleeding disorders, 03 rare and paediatric disease, 04 cell and gene therapy in oncology, 05 neurology and MS, 06 large-population areas, 07 vaccines).
+- Each area page follows one pattern: why it matters in human terms, what is happening mechanistically, an evidence panel of published figures with primary-source links, the populations it applies to, and previous and next links between areas.
+- The figures on these pages are drawn from the published literature and each carries a citation link, rather than from any OpenImmune material. The pages carry no OpenImmune data-scale figures, funding amounts, partner names, or the proof-of-concept molecule. One change from the versions supplied: the named cancer programme on page 04 was replaced with a general reference to the parallel public effort on MHC Class I, to keep that name out of public copy.
+
 **Footer (every page)**
 - "An open, neutrally funded, UK-led effort to make the immune response to
   medicines predictable, for everyone."
 
 **Page titles and descriptions** (used by search engines and link previews) are
 in the `<head>` of each page and are also qualitative.
+
+---
+
+## Interaction and motion (the craft layer)
+
+The site keeps its calm, dark, one-luminous-moment-per-view character. On top of
+that, a light interaction layer was added to make it feel considered and tactile
+without ever distracting from the words. All of it is gated behind
+`prefers-reduced-motion` and behaves gracefully on touch devices and without
+JavaScript.
+
+- **Micro-interactions.** Buttons, cards, and the team grid use gentle
+  spring easing (a small settle, never a bounce). Buttons carry a soft light
+  sweep on hover and a slight press on click. Cards and member panels lift and,
+  on a desktop pointer, catch a soft aurora glow that follows the cursor.
+- **Kinetic headings.** The home hero and each page heading rise word by word as
+  they enter view. Without JavaScript, or with reduced motion set, the headings
+  simply appear.
+- **Scroll reveals.** Sections and feature blocks fade and slide up in sequence
+  as you scroll, on a slow, even cadence.
+- **Depth and accents.** A faint mesh gradient sits behind the hero, the header
+  becomes frosted glass once you scroll, the contact form is a glass panel, and
+  a barely-there grain gives the surfaces a premium, non-flat feel.
+- **Moments of delight.** The hero aperture and point field lean gently towards
+  the cursor; a thin aurora line at the top of the window tracks reading
+  position; and small aurora ticks draw in beside each item in "Why it matters".
+
+To tune or remove any of this, see `17. ELEVATION LAYER` in `styles.css` and the
+numbered modules in `script.js`.
 
 ---
 
@@ -180,7 +232,9 @@ in the `<head>` of each page and are also qualitative.
   `--font-body`, `--font-mono`, and the `--fs-*` scale. The fonts are loaded by
   the `<link>` in each page `<head>`.
 - **Motion.** The entrance, drift, and reveal timings are in `styles.css` under
-  `15. MOTION`. Reduced-motion preferences are respected automatically.
+  `15. MOTION`; the craft layer added later sits under `17. ELEVATION LAYER`
+  through `19. RESPONSIVE ADDITIONS`. Reduced-motion preferences are respected
+  automatically, and every effect degrades to a fully readable static page.
 - **The leadership grid.** In `about.html`, each person is one `<article
   class="member">` block. The round monogram is the two-letter `<span
   class="avatar">`; to use a photograph instead, replace that span with an

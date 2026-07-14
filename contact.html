@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact  -  OpenImmune</title>
+  <title>Contact OpenImmune</title>
   <meta name="description" content="Get in touch with OpenImmune about partnership, funding, scientific collaboration, or media.">
   <link rel="canonical" href="https://openimmune.ai/contact.html">
   <meta name="theme-color" content="#08060F">
@@ -11,13 +11,13 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="OpenImmune">
   <meta property="og:url" content="https://openimmune.ai/contact.html">
-  <meta property="og:title" content="Contact  -  OpenImmune">
+  <meta property="og:title" content="Contact OpenImmune">
   <meta property="og:description" content="Get in touch with OpenImmune about partnership, funding, scientific collaboration, or media.">
   <meta property="og:image" content="https://openimmune.ai/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Contact  -  OpenImmune">
+  <meta name="twitter:title" content="Contact OpenImmune">
   <meta name="twitter:description" content="Get in touch with OpenImmune about partnership, funding, scientific collaboration, or media.">
   <meta name="twitter:image" content="https://openimmune.ai/assets/og-image.png">
 
@@ -31,11 +31,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=3">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
 
   <header class="site-header" id="siteHeader">
     <div class="container">
@@ -53,6 +55,23 @@
       <nav class="nav" id="primaryNav" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
+        <div class="nav-group" data-nav-group>
+          <span class="nav-group__head">
+            <a href="why-this-matters.html">Why this matters</a>
+            <button class="nav-group__toggle" type="button" aria-expanded="false" aria-label="Show all topics" aria-controls="whyMenu"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </span>
+          <div class="nav-group__menu" id="whyMenu">
+            <a href="why-this-matters.html" class="nav-group__overview"><b>&#9678;</b> Overview</a>
+            <a href="why-00-ai-moonshot.html"><i>00</i> The AI moonshot</a>
+            <a href="why-01-inflammatory-disease.html"><i>01</i> Inflammatory disease</a>
+            <a href="why-02-haemophilia.html"><i>02</i> Haemophilia &amp; bleeding disorders</a>
+            <a href="why-03-rare-paediatric.html"><i>03</i> Rare &amp; paediatric disease</a>
+            <a href="why-04-cell-gene-oncology.html"><i>04</i> Cell &amp; gene therapy in oncology</a>
+            <a href="why-05-neurology-ms.html"><i>05</i> Neurology and MS</a>
+            <a href="why-06-large-populations.html"><i>06</i> Large-population areas</a>
+            <a href="why-07-vaccines.html"><i>07</i> Vaccines</a>
+          </div>
+        </div>
         <a href="contact.html" aria-current="page">Contact</a>
       </nav>
     </div>
@@ -64,7 +83,7 @@
       <img class="page-hero__field" src="assets/field-soft.svg" alt="" aria-hidden="true">
       <div class="container">
         <span class="eyebrow">Contact</span>
-        <h1>Get in touch</h1>
+        <h1 class="kinetic">Get in touch</h1>
         <p class="lead">We would like to hear from you, whether your interest is partnership, funding, scientific collaboration, or media.</p>
       </div>
     </section>
@@ -94,7 +113,7 @@
             Create the form (delivering to tomfleming@gmail.com) at https://formspree.io
             The form works with and without JavaScript once the action is set.
           -->
-          <form class="form reveal" id="contactForm" action="" method="POST" novalidate>
+          <form class="form glass reveal" id="contactForm" action="" method="POST" novalidate>
             <div class="field">
               <label for="cf-name">Name</label>
               <input type="text" id="cf-name" name="name" autocomplete="name" required>
@@ -142,6 +161,6 @@
     </div>
   </footer>
 
-  <script src="script.js" defer></script>
+  <script src="script.js?v=3" defer></script>
 </body>
 </html>

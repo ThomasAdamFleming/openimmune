@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OpenImmune  -  predicting the immune response to medicines, openly</title>
+  <title>OpenImmune: predicting the immune response to medicines, openly</title>
   <meta name="description" content="A UK-led, not-for-profit research programme building an open foundation for predicting how the immune system responds to biologic medicines, and releasing it for everyone.">
   <link rel="canonical" href="https://openimmune.ai/">
   <meta name="theme-color" content="#08060F">
@@ -12,13 +12,13 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="OpenImmune">
   <meta property="og:url" content="https://openimmune.ai/">
-  <meta property="og:title" content="OpenImmune  -  predicting the immune response to medicines, openly">
+  <meta property="og:title" content="OpenImmune: predicting the immune response to medicines, openly">
   <meta property="og:description" content="A UK-led, not-for-profit research programme building an open foundation for predicting how the immune system responds to biologic medicines, and releasing it for everyone.">
   <meta property="og:image" content="https://openimmune.ai/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="OpenImmune  -  predicting the immune response to medicines, openly">
+  <meta name="twitter:title" content="OpenImmune: predicting the immune response to medicines, openly">
   <meta name="twitter:description" content="A UK-led, not-for-profit research programme building an open foundation for predicting how the immune system responds to biologic medicines.">
   <meta name="twitter:image" content="https://openimmune.ai/assets/og-image.png">
 
@@ -34,11 +34,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=3">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
 
   <header class="site-header" id="siteHeader">
     <div class="container">
@@ -56,6 +58,23 @@
       <nav class="nav" id="primaryNav" aria-label="Primary">
         <a href="index.html" aria-current="page">Home</a>
         <a href="about.html">About</a>
+        <div class="nav-group" data-nav-group>
+          <span class="nav-group__head">
+            <a href="why-this-matters.html">Why this matters</a>
+            <button class="nav-group__toggle" type="button" aria-expanded="false" aria-label="Show all topics" aria-controls="whyMenu"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </span>
+          <div class="nav-group__menu" id="whyMenu">
+            <a href="why-this-matters.html" class="nav-group__overview"><b>&#9678;</b> Overview</a>
+            <a href="why-00-ai-moonshot.html"><i>00</i> The AI moonshot</a>
+            <a href="why-01-inflammatory-disease.html"><i>01</i> Inflammatory disease</a>
+            <a href="why-02-haemophilia.html"><i>02</i> Haemophilia &amp; bleeding disorders</a>
+            <a href="why-03-rare-paediatric.html"><i>03</i> Rare &amp; paediatric disease</a>
+            <a href="why-04-cell-gene-oncology.html"><i>04</i> Cell &amp; gene therapy in oncology</a>
+            <a href="why-05-neurology-ms.html"><i>05</i> Neurology and MS</a>
+            <a href="why-06-large-populations.html"><i>06</i> Large-population areas</a>
+            <a href="why-07-vaccines.html"><i>07</i> Vaccines</a>
+          </div>
+        </div>
         <a href="contact.html">Contact</a>
       </nav>
     </div>
@@ -65,12 +84,13 @@
 
     <!-- HERO -->
     <section class="hero">
+      <div class="hero__mesh" aria-hidden="true"></div>
       <img class="hero__field" src="assets/field.svg" alt="" aria-hidden="true">
       <div class="container">
         <img class="hero__aperture" src="assets/aperture.svg" alt="" aria-hidden="true" width="240" height="240">
         <div class="hero__content">
           <span class="eyebrow">Open &middot; Neutrally funded &middot; UK-led</span>
-          <h1>The immune system decides whether a medicine works.</h1>
+          <h1 class="kinetic">The immune system decides whether a medicine works.</h1>
           <p class="hero__lead">Some of the most powerful medicines we have can fail when the body's immune system turns against them. OpenImmune is building the open foundation to predict that response from a medicine's design, and releasing it for the whole field to build on.</p>
           <div class="hero__cta">
             <a class="btn btn--primary" href="contact.html">Get in touch <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
@@ -96,8 +116,48 @@
       </div>
     </section>
 
+    <!-- WHY IT MATTERS (the human case) -->
+    <section class="section" id="why">
+      <div class="container">
+        <div class="impact">
+          <div class="section-head reveal" style="margin-bottom:0">
+            <span class="eyebrow">Why it matters</span>
+            <h2 class="kinetic">A common harm, and a fixable one</h2>
+            <p class="impact__lead">This is not a rare event at the edge of medicine. It happens quietly, to many people, and it can be put right.</p>
+          </div>
+
+          <div class="dimensions">
+            <div class="dimension">
+              <span class="dimension__index" aria-hidden="true">00</span>
+              <div class="dimension__body">
+                <h3>The treatment that never arrives</h3>
+                <p>Many biologic medicines fail late in development, and the immune response is one of the leading reasons. Behind that is a simple fact: a medicine that fails this way is one that patients waited years for and will now never receive.</p>
+              </div>
+            </div>
+            <div class="dimension">
+              <span class="dimension__index" aria-hidden="true">01</span>
+              <div class="dimension__body">
+                <h3>The treatment that is taken away</h3>
+                <p>A significant share of people on long-term biologic therapy slowly lose the response, as the immune system learns to recognise the drug and attack it. These are people the medicine was working for. They then cycle through alternatives, each carrying the same risk, often getting worse in between.</p>
+              </div>
+            </div>
+            <div class="dimension">
+              <span class="dimension__index" aria-hidden="true">02</span>
+              <div class="dimension__body">
+                <h3>An unfairness built into the tools</h3>
+                <p>The prediction tools that exist today were built from a narrow slice of human biology. The part of us that governs this response varies enormously between populations, so the tools work least well for the patients already least well served by medicine. A dataset built deliberately across that diversity is the way to put it right.</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="impact__note reveal">We can already make medicines that give people their lives back. We just cannot yet tell whose body will let them keep it. <span class="hl">OpenImmune is how we learn to tell, openly, for everyone.</span></p>
+          <p class="reveal" style="margin-top:var(--space-6)"><a class="link" href="why-this-matters.html">See the eight areas where it matters <span aria-hidden="true">&rarr;</span></a></p>
+        </div>
+      </div>
+    </section>
+
     <!-- THE OBJECTIVE -->
-    <section class="section" id="objective">
+    <section class="section surface" id="objective">
       <div class="container">
         <div class="feature-grid">
           <div class="section-head reveal" style="margin-bottom:0">
@@ -113,7 +173,7 @@
     </section>
 
     <!-- THE SOLUTION -->
-    <section class="section surface" id="solution">
+    <section class="section" id="solution">
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">The solution</span>
@@ -165,7 +225,7 @@
     </section>
 
     <!-- WHY NEUTRAL FUNDING -->
-    <section class="section" id="funding">
+    <section class="section surface" id="funding">
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">Why it is funded this way</span>
@@ -175,6 +235,35 @@
           <p>A shared, open foundation like this will not be built by the market. No single company can justify building it and then giving it away, even though all of them need it. That is the gap OpenImmune exists to close.</p>
           <p>So the work is funded neutrally, through government and philanthropy rather than any one company. Neutral funding is what keeps the result open, general, and in the public interest. Neutral money builds the commons; commercial money builds on it.</p>
           <p>This is the first, foundational phase. It is built to prove what is possible and to set the ground for a far larger effort to follow, one that could change how biologic medicines are designed and tested, and help more patients keep the treatments that work.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO IT IS FOR -->
+    <section class="section" id="who-for">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Who it is for</span>
+          <h2>An open foundation, for the whole field</h2>
+          <p class="standfirst">Built once, released openly, so that everyone who touches a biologic medicine can rely on it.</p>
+        </div>
+        <div class="audiences reveal-stagger">
+          <div class="audience">
+            <span class="audience__label">Patients</span>
+            <p>The people who lose a medicine that was working, or wait for one that never comes.</p>
+          </div>
+          <div class="audience">
+            <span class="audience__label">Clinicians</span>
+            <p>Who need to know which treatment is likely to hold before they prescribe it.</p>
+          </div>
+          <div class="audience">
+            <span class="audience__label">Developers</span>
+            <p>Who meet this problem in private today, one programme and one company at a time.</p>
+          </div>
+          <div class="audience">
+            <span class="audience__label">Researchers</span>
+            <p>Who have never had immune data at this scale, in one place, to build on.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -214,6 +303,6 @@
     </div>
   </footer>
 
-  <script src="script.js" defer></script>
+  <script src="script.js?v=3" defer></script>
 </body>
 </html>
