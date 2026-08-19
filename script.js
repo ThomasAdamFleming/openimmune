@@ -8,7 +8,7 @@
    3. Scroll reveals + kinetic headings (single observer)
    4. Scroll-progress signal bar
    5. Pointer parallax (hero) and card spotlight
-   6. Contact form (Formspree)
+   6. Contact form (Web3Forms)
    ========================================================================== */
 (function () {
   "use strict";
@@ -244,9 +244,11 @@
   }
 
   /* --------------------------------------------------------------------------
-     6. Contact form (Formspree)
-        Works as a normal POST without JS once the action is set. With JS it
-        submits in the background and reports status inline.
+     6. Contact form (Web3Forms)
+        Without JS the form posts straight to Web3Forms and the browser lands on
+        thank-you.html, which is what the hidden "redirect" field is for. With JS
+        we submit in the background and report status inline, so the redirect
+        field is stripped from the payload before sending.
      ------------------------------------------------------------------------ */
   var form = document.getElementById("contactForm");
   var status = document.getElementById("formStatus");
@@ -270,28 +272,33 @@
         return;
       }
 
+      var payload = new FormData(form);
+      payload.delete("redirect");
+
       var btn = form.querySelector("button[type=submit]");
       if (btn) btn.disabled = true;
       setStatus("info", "Sending\u2026");
 
       fetch(endpoint, {
         method: "POST",
-        body: new FormData(form),
+        body: payload,
         headers: { "Accept": "application/json" }
       })
         .then(function (response) {
-          if (response.ok) {
-            form.reset();
-            setStatus("success", "Thank you. Your message has been sent, and we will be in touch.");
-          } else {
-            return response.json().then(function (data) {
-              var msg = "Something went wrong. Please try again, or write to us another way.";
-              if (data && data.errors && data.errors.length) {
-                msg = data.errors.map(function (x) { return x.message; }).join(" ");
+          return response.json().catch(function () { return null; }).then(function (data) {
+            var ok = response.ok && (!data || data.success !== false);
+            if (ok) {
+              form.reset();
+              setStatus("success", "Thank you. Your message has been sent, and we will be in touch.");
+            } else {
+              /* Web3Forms returns { success: false, message: "..." }. That text is
+                 for diagnosis, not for visitors, so it goes to the console only. */
+              if (data && data.message && window.console && console.warn) {
+                console.warn("Contact form: " + data.message);
               }
-              setStatus("error", msg);
-            });
-          }
+              setStatus("error", "Something went wrong. Please try again, or write to us another way.");
+            }
+          });
         })
         .catch(function () {
           setStatus("error", "Something went wrong sending your message. Please try again in a moment.");

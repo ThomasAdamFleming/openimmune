@@ -25,7 +25,8 @@ openimmune/
   why-05-neurology-ms.html     05  Neurology and MS
   why-06-large-populations.html      06  Large-population areas
   why-07-vaccines.html         07  Vaccines (the inverted case)
-  contact.html        Contact form (Formspree)
+  contact.html        Contact form (Web3Forms)
+  thank-you.html      Confirmation page after a form post without JavaScript (noindex)
   404.html            Custom not-found page
   styles.css          The full design system (tokens grouped at the top)
   script.js           Header, mobile nav, dropdown, scroll reveals, kinetic headings, scroll progress, pointer effects, stat count-up, form handling
@@ -105,30 +106,33 @@ You should see the four GitHub addresses above.
 
 ---
 
-## The contact form (one step to switch it on)
+## The contact form
 
-The form on `contact.html` uses [Formspree](https://formspree.io). Right now it
-is built but not connected, because Formspree needs a form to be created in their
-dashboard first. The email address you gave (tomfleming@gmail.com) is the
-**destination** that submissions are delivered to; it is not what goes in the
-page.
+The form on `contact.html` posts to [Web3Forms](https://web3forms.com) at
+`https://api.web3forms.com/submit`. It is live.
 
-To connect it:
+How it is wired:
 
-1. Sign in at https://formspree.io and create a new form, set to deliver to
-   **tomfleming@gmail.com**.
-2. Formspree gives you an endpoint that looks like
-   `https://formspree.io/f/abcwxyz`.
-3. Open `contact.html`, find the `<form ... id="contactForm" action="">` line,
-   and paste your endpoint into the empty `action=""`, so it reads
-   `action="https://formspree.io/f/abcwxyz"`.
+- `access_key` is a hidden field in `contact.html`. It is **public by design**:
+  it identifies the form, not the inbox, so it is safe in the page source.
+- Delivery currently goes to **tomfleming@gmail.com**, which is set against the
+  key in the Web3Forms dashboard. When a dedicated OpenImmune address exists,
+  change the destination there; nothing in the repository needs editing.
+- `subject` and `from_name` set how the message appears in the inbox. The
+  enquirer's own address is used as the reply-to, so replying goes straight
+  back to them.
+- `botcheck` is a hidden checkbox honeypot. Web3Forms rejects any submission
+  where it has been ticked, which only a bot would do.
+- `redirect` points at `thank-you.html`, a `noindex` confirmation page in this
+  repository. It is only used when JavaScript is unavailable.
 
-That is the only change needed. The form then works with and without JavaScript:
-with it, messages send in the background and a confirmation appears in place;
-without it, the browser posts to Formspree directly.
+The form works with and without JavaScript. With it, `script.js` sends the
+message in the background, strips the `redirect` field, and reports success or
+failure in place. Without it, the browser posts to Web3Forms and lands on
+`thank-you.html`.
 
-When a dedicated OpenImmune email address exists later, point the Formspree form
-at that address; no change to the site is needed.
+If the form ever stops working, check the access key first, then the Web3Forms
+dashboard for the delivery address and the monthly submission allowance.
 
 ---
 

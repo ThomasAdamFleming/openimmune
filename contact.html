@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=5">
+  <link rel="stylesheet" href="styles.css?v=6">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -106,14 +106,20 @@
           </aside>
 
           <!--
-            CONTACT FORM
-            To switch the form on, paste your Formspree endpoint into the form's
-            action attribute below, for example:
-              action="https://formspree.io/f/abcwxyz"
-            Create the form (delivering to tomfleming@gmail.com) at https://formspree.io
-            The form works with and without JavaScript once the action is set.
+            CONTACT FORM (Web3Forms)
+            The access key is public by design: it identifies the form, not the
+            inbox. Delivery goes to the address registered against the key at
+            https://web3forms.com. To change where messages land, change it in
+            the Web3Forms dashboard; nothing here needs editing.
+            The form works with and without JavaScript. With it, the message is
+            sent in the background and a confirmation appears in place. Without
+            it, the browser posts to Web3Forms and lands on thank-you.html.
           -->
-          <form class="form glass reveal" id="contactForm" action="" method="POST" novalidate>
+          <form class="form glass reveal" id="contactForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+            <input type="hidden" name="access_key" value="4a2a4454-9779-4b6c-b6a4-1afc8fcccb30">
+            <input type="hidden" name="subject" value="OpenImmune website enquiry">
+            <input type="hidden" name="from_name" value="OpenImmune website">
+            <input type="hidden" name="redirect" value="https://openimmune.ai/thank-you.html">
             <div class="field">
               <label for="cf-name">Name</label>
               <input type="text" id="cf-name" name="name" autocomplete="name" required>
@@ -130,8 +136,8 @@
               <label for="cf-message">Message</label>
               <textarea id="cf-message" name="message" rows="5" required></textarea>
             </div>
-            <!-- spam honeypot, hidden from people -->
-            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+            <!-- spam honeypot, hidden from people; Web3Forms rejects the submission if it is ticked -->
+            <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
             <button class="btn btn--primary" type="submit">Send message <span class="btn-arrow" aria-hidden="true">&rarr;</span></button>
             <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
           </form>
@@ -161,6 +167,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=3" defer></script>
+  <script src="script.js?v=4" defer></script>
 </body>
 </html>
