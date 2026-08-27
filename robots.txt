@@ -1,3 +1,13 @@
+# openimmune.ai
+#
+# Posture: search, retrieval, and user-initiated agents are allowed, because
+# the programme's outputs exist to be found, quoted, and cited. Model training
+# crawlers are allowed too, deliberately: OpenImmune releases its work openly
+# as a public good, and blocking training would contradict that.
+
+User-agent: *
+Allow: /
+
 # --- Classic search ---
 User-agent: Googlebot
 Allow: /
@@ -5,7 +15,9 @@ Allow: /
 User-agent: bingbot
 Allow: /
 
-# --- AI search & retrieval: ALLOW (these send referrals / citations) ---
+# --- AI search and retrieval: allowed. These are the agents that send
+#     referrals and produce citations, and blocking one removes the site
+#     from that engine's answers entirely. ---
 User-agent: OAI-SearchBot
 Allow: /
 
@@ -24,19 +36,12 @@ Allow: /
 User-agent: Perplexity-User
 Allow: /
 
-# --- Training crawlers: your call. Uncomment to opt out. ---
-# User-agent: GPTBot
-# Disallow: /
-# User-agent: ClaudeBot
-# Disallow: /
-# User-agent: CCBot
-# Disallow: /
-# User-agent: Google-Extended
-# Disallow: /
-# User-agent: Applebot-Extended
-# Disallow: /
+# --- Model training: allowed, by decision rather than by default.
+#     GPTBot, ClaudeBot, CCBot, Google-Extended and Applebot-Extended are
+#     covered by the wildcard above and are free to crawl. ---
 
-# --- Non-compliant scrapers: block at WAF, not just here ---
+# --- Non-compliant scraper. Documented as inconsistent with robots.txt, and
+#     GitHub Pages puts no edge layer in front of the site to enforce it. ---
 User-agent: Bytespider
 Disallow: /
 

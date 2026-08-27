@@ -16,9 +16,10 @@
   <title>Neurology and multiple sclerosis: OpenImmune</title>
   <meta name="description" content="A well-organised constituency with a clear efficacy-erosion story that maps directly onto anti-drug antibodies.">
   <link rel="canonical" href="https://openimmune.ai/why-05-neurology-ms.html">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
   <meta name="theme-color" content="#08060F">
 
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
   <meta property="og:site_name" content="OpenImmune">
   <meta property="og:url" content="https://openimmune.ai/why-05-neurology-ms.html">
   <meta property="og:title" content="Neurology and multiple sclerosis: OpenImmune">
@@ -41,9 +42,103 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=6">
+  <link rel="stylesheet" href="styles.css?v=7">
   <script>document.documentElement.classList.add('js');</script>
 
+
+  <!-- Structured data: entity anchor and page provenance -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": [
+          "Organization",
+          "NGO"
+        ],
+        "@id": "https://openimmune.ai/#organization",
+        "name": "OpenImmune",
+        "url": "https://openimmune.ai/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://openimmune.ai/assets/icon-512.png",
+          "width": 512,
+          "height": 512
+        },
+        "image": "https://openimmune.ai/assets/og-image.png",
+        "description": "A UK-led, not-for-profit research programme building an open scientific foundation for predicting the immunogenicity of biologic medicines: whether the body's immune system will attack a treatment.",
+        "sameAs": [
+          "https://www.linkedin.com/company/openimmune"
+        ],
+        "founder": {
+          "@type": "Person",
+          "name": "Tom Fleming",
+          "jobTitle": "Founder and CEO"
+        },
+        "knowsAbout": [
+          "Immunogenicity",
+          "Anti-drug antibodies",
+          "Biologic medicines",
+          "Open data"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://openimmune.ai/#website",
+        "url": "https://openimmune.ai/",
+        "name": "OpenImmune",
+        "description": "A UK-led, not-for-profit research programme building an open scientific foundation for predicting the immunogenicity of biologic medicines: whether the body's immune system will attack a treatment.",
+        "publisher": {
+          "@id": "https://openimmune.ai/#organization"
+        },
+        "inLanguage": "en-GB"
+      },
+      {
+        "@type": "Article",
+        "@id": "https://openimmune.ai/why-05-neurology-ms.html#article",
+        "headline": "Neurology and multiple sclerosis",
+        "description": "Efficacy erosion in multiple sclerosis therapy, and how it maps directly onto anti-drug antibodies.",
+        "mainEntityOfPage": "https://openimmune.ai/why-05-neurology-ms.html",
+        "isPartOf": {
+          "@id": "https://openimmune.ai/#website"
+        },
+        "author": {
+          "@id": "https://openimmune.ai/#organization"
+        },
+        "publisher": {
+          "@id": "https://openimmune.ai/#organization"
+        },
+        "datePublished": "2026-07-14",
+        "dateModified": "2026-08-27",
+        "image": "https://openimmune.ai/assets/og-image.png",
+        "inLanguage": "en-GB"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://openimmune.ai/why-05-neurology-ms.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://openimmune.ai/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Why this matters",
+            "item": "https://openimmune.ai/why-this-matters.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Neurology and multiple sclerosis"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -89,6 +184,7 @@
   </header>
 
   <main id="main">
+  <article class="topic-article">
 
     <section class="topic-hero">
       <img class="topic-hero__field" src="assets/field-soft.svg" alt="" aria-hidden="true">
@@ -107,11 +203,18 @@
 
     <hr class="rule">
 
+  <!-- ANSWER-FIRST SUMMARY -->
+  <section class="section section--answer">
+    <div class="container">
+      <p class="answer">In multiple sclerosis, some people slowly lose the benefit of a therapy that was holding the disease steady, because their immune system has produced anti-drug antibodies against it. The warning usually comes late. OpenImmune is building the open foundation that would let that loss be predicted rather than observed.</p>
+    </div>
+  </section>
+
     <section class="section">
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">Why this matters</span>
-          <h2>Acting before the damage is done</h2>
+          <h2 id="acting-before-the-damage-is-done">Acting before the damage is done</h2>
         </div>
         <div class="prose reveal">
           <p>For many people living with relapsing multiple sclerosis, a regular injection or infusion keeps the disease steady: fewer relapses, and less of the disability that can otherwise build up year on year. In some patients, though, the immune system slowly produces antibodies that cancel the drug out, so it quietly stops protecting them. The warning tends to come late, when relapses return or a scan shows new activity, by which point function may have been lost that cannot be regained.</p>
@@ -124,7 +227,7 @@
         <div class="feature-grid">
           <div class="section-head reveal" style="margin-bottom:0">
             <span class="eyebrow">What is happening</span>
-            <h2>Antibodies that quietly cancel a drug out</h2>
+            <h2 id="antibodies-that-quietly-cancel-a-drug-out">Antibodies that quietly cancel a drug out</h2>
           </div>
           <div class="prose reveal">
             <p>Neutralising antibodies to interferon-beta reduce the drug's biological activity and, with it, its efficacy. Antibodies to natalizumab drive infusion reactions and loss of response. Both are chronic, repeat-dosing settings, again the conditions under which immunogenicity matters most.</p>
@@ -137,7 +240,7 @@
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">The evidence</span>
-          <h2>Well documented, well quantified</h2>
+          <h2 id="well-documented-well-quantified">Well documented, well quantified</h2>
         </div>
         <ul class="stats reveal-stagger">
         <li class="stat">
@@ -156,13 +259,14 @@
           <a class="ref" href="https://jamanetwork.com/journals/jamaneurology/fullarticle/2802372" target="_blank" rel="noopener">Hittle et al., JAMA Neurol 2023</a>
         </li>
         </ul>
+        <p class="stats-note">Every figure here is drawn from published literature and linked to its source. <a href="what-is-immunogenicity.html">Immunogenicity</a> of this kind is what OpenImmune is building the open dataset and model to make predictable, before treatment begins.</p>
       </div>
     </section>
     <section class="section surface" id="applies">
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">Where it applies</span>
-          <h2>A defined and well-supported population</h2>
+          <h2 id="a-defined-and-well-supported-population">A defined and well-supported population</h2>
           <p class="standfirst">Principally relapsing multiple sclerosis, treated with chronic, repeat-dosing therapies.</p>
         </div>
         <ul class="pills reveal"><li>Relapsing multiple sclerosis</li><li>Interferon-beta therapies</li><li>Natalizumab</li><li>Anti-CD20 agents</li></ul>
@@ -186,7 +290,7 @@
     <section class="section cta-band">
       <div class="container">
         <div class="cta-panel reveal">
-          <h2>Work with us</h2>
+          <h2 id="work-with-us">Work with us</h2>
           <p>OpenImmune is open to partnership, funding, and scientific collaboration. If you are working on this problem, or want to help solve it, we would like to hear from you.</p>
           <div class="hero__cta">
             <a class="btn btn--primary" href="contact.html">Get in touch <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
@@ -195,7 +299,8 @@
       </div>
     </section>
 
-  </main>
+    </article>
+</main>
 
   <footer class="site-footer">
     <div class="container">
@@ -212,6 +317,12 @@
       </div>
       <div class="footer-meta">
         <a class="link" href="contact.html">Contact</a>
+        <nav class="footer-links" aria-label="Background">
+          <a href="what-is-immunogenicity.html">What is immunogenicity?</a>
+          <a href="what-is-an-anti-drug-antibody.html">Anti-drug antibodies</a>
+          <a href="glossary.html">Glossary</a>
+        </nav>
+        <span class="page-stamp">Last reviewed <time datetime="2026-08-27">27 August 2026</time></span>
         <span class="copyright">&copy; 2026 OpenImmune</span>
       </div>
     </div>

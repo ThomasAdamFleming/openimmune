@@ -16,9 +16,10 @@
   <title>Haemophilia and bleeding disorders: OpenImmune</title>
   <meta name="description" content="The cleanest, best-characterised immunogenicity problem in medicine, and one of the most consequential.">
   <link rel="canonical" href="https://openimmune.ai/why-02-haemophilia.html">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
   <meta name="theme-color" content="#08060F">
 
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
   <meta property="og:site_name" content="OpenImmune">
   <meta property="og:url" content="https://openimmune.ai/why-02-haemophilia.html">
   <meta property="og:title" content="Haemophilia and bleeding disorders: OpenImmune">
@@ -41,9 +42,103 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=6">
+  <link rel="stylesheet" href="styles.css?v=7">
   <script>document.documentElement.classList.add('js');</script>
 
+
+  <!-- Structured data: entity anchor and page provenance -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": [
+          "Organization",
+          "NGO"
+        ],
+        "@id": "https://openimmune.ai/#organization",
+        "name": "OpenImmune",
+        "url": "https://openimmune.ai/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://openimmune.ai/assets/icon-512.png",
+          "width": 512,
+          "height": 512
+        },
+        "image": "https://openimmune.ai/assets/og-image.png",
+        "description": "A UK-led, not-for-profit research programme building an open scientific foundation for predicting the immunogenicity of biologic medicines: whether the body's immune system will attack a treatment.",
+        "sameAs": [
+          "https://www.linkedin.com/company/openimmune"
+        ],
+        "founder": {
+          "@type": "Person",
+          "name": "Tom Fleming",
+          "jobTitle": "Founder and CEO"
+        },
+        "knowsAbout": [
+          "Immunogenicity",
+          "Anti-drug antibodies",
+          "Biologic medicines",
+          "Open data"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://openimmune.ai/#website",
+        "url": "https://openimmune.ai/",
+        "name": "OpenImmune",
+        "description": "A UK-led, not-for-profit research programme building an open scientific foundation for predicting the immunogenicity of biologic medicines: whether the body's immune system will attack a treatment.",
+        "publisher": {
+          "@id": "https://openimmune.ai/#organization"
+        },
+        "inLanguage": "en-GB"
+      },
+      {
+        "@type": "Article",
+        "@id": "https://openimmune.ai/why-02-haemophilia.html#article",
+        "headline": "Haemophilia and bleeding disorders",
+        "description": "Inhibitor development in haemophilia: the cleanest and best-characterised immunogenicity problem in medicine.",
+        "mainEntityOfPage": "https://openimmune.ai/why-02-haemophilia.html",
+        "isPartOf": {
+          "@id": "https://openimmune.ai/#website"
+        },
+        "author": {
+          "@id": "https://openimmune.ai/#organization"
+        },
+        "publisher": {
+          "@id": "https://openimmune.ai/#organization"
+        },
+        "datePublished": "2026-07-14",
+        "dateModified": "2026-08-27",
+        "image": "https://openimmune.ai/assets/og-image.png",
+        "inLanguage": "en-GB"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://openimmune.ai/why-02-haemophilia.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://openimmune.ai/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Why this matters",
+            "item": "https://openimmune.ai/why-this-matters.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Haemophilia and bleeding disorders"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -89,6 +184,7 @@
   </header>
 
   <main id="main">
+  <article class="topic-article">
 
     <section class="topic-hero">
       <img class="topic-hero__field" src="assets/field-soft.svg" alt="" aria-hidden="true">
@@ -107,11 +203,18 @@
 
     <hr class="rule">
 
+  <!-- ANSWER-FIRST SUMMARY -->
+  <section class="section section--answer">
+    <div class="container">
+      <p class="answer">People with severe haemophilia depend on infusions of clotting factor. For a sizeable minority the immune system produces inhibitors: antibodies that switch the treatment off. It is the best-characterised immunogenicity problem in medicine, and the one where the open predictive model OpenImmune is building would change care most directly.</p>
+    </div>
+  </section>
+
     <section class="section">
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">Why this matters</span>
-          <h2>The safest option, from the very first treatment</h2>
+          <h2 id="the-safest-option-from-the-very-first-treatment">The safest option, from the very first treatment</h2>
         </div>
         <div class="prose reveal">
           <p>People with severe haemophilia depend on infusions of clotting factor to stop bleeds that would otherwise be dangerous. For a sizeable minority, the immune system turns on the very protein meant to protect them, producing what doctors call inhibitors: antibodies that switch the treatment off. Almost overnight, a manageable condition becomes dangerous and far more expensive to treat, bleeds grow hard to control, and clearing the inhibitor takes many months of demanding, uncertain therapy.</p>
@@ -124,7 +227,7 @@
         <div class="feature-grid">
           <div class="section-head reveal" style="margin-bottom:0">
             <span class="eyebrow">What is happening</span>
-            <h2>A protein the body never learned to tolerate</h2>
+            <h2 id="a-protein-the-body-never-learned-to-tolerate">A protein the body never learned to tolerate</h2>
           </div>
           <div class="prose reveal">
             <p>Factor replacement introduces a protein that a severely deficient person's immune system has, in effect, never learned to tolerate. A substantial minority develop neutralising inhibitors, with previously untreated patients at highest risk.</p>
@@ -137,7 +240,7 @@
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">The evidence</span>
-          <h2>The most consequential immunogenicity problem there is</h2>
+          <h2 id="the-most-consequential-immunogenicity-problem-there-is">The most consequential immunogenicity problem there is</h2>
         </div>
         <ul class="stats reveal-stagger">
         <li class="stat">
@@ -161,13 +264,14 @@
           <a class="ref" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10387983/" target="_blank" rel="noopener">J Manag Care Spec Pharm 2023</a>
         </li>
         </ul>
+        <p class="stats-note">Every figure here is drawn from published literature and linked to its source. <a href="what-is-immunogenicity.html">Immunogenicity</a> of this kind is what OpenImmune is building the open dataset and model to make predictable, before treatment begins.</p>
       </div>
     </section>
     <section class="section surface" id="applies">
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">Where it applies</span>
-          <h2>Smaller in number, defined by severity and cost</h2>
+          <h2 id="smaller-in-number-defined-by-severity-and-cost">Smaller in number, defined by severity and cost</h2>
           <p class="standfirst">A smaller population than the inflammatory diseases, but one marked by high severity and very high cost per patient.</p>
         </div>
         <ul class="pills reveal"><li>Severe haemophilia A</li><li>Haemophilia B</li><li>Other replacement-factor disorders</li></ul>
@@ -191,7 +295,7 @@
     <section class="section cta-band">
       <div class="container">
         <div class="cta-panel reveal">
-          <h2>Work with us</h2>
+          <h2 id="work-with-us">Work with us</h2>
           <p>OpenImmune is open to partnership, funding, and scientific collaboration. If you are working on this problem, or want to help solve it, we would like to hear from you.</p>
           <div class="hero__cta">
             <a class="btn btn--primary" href="contact.html">Get in touch <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
@@ -200,7 +304,8 @@
       </div>
     </section>
 
-  </main>
+    </article>
+</main>
 
   <footer class="site-footer">
     <div class="container">
@@ -217,6 +322,12 @@
       </div>
       <div class="footer-meta">
         <a class="link" href="contact.html">Contact</a>
+        <nav class="footer-links" aria-label="Background">
+          <a href="what-is-immunogenicity.html">What is immunogenicity?</a>
+          <a href="what-is-an-anti-drug-antibody.html">Anti-drug antibodies</a>
+          <a href="glossary.html">Glossary</a>
+        </nav>
+        <span class="page-stamp">Last reviewed <time datetime="2026-08-27">27 August 2026</time></span>
         <span class="copyright">&copy; 2026 OpenImmune</span>
       </div>
     </div>

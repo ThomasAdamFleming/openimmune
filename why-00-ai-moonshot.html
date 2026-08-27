@@ -16,9 +16,10 @@
   <title>The AI moonshot: OpenImmune</title>
   <meta name="description" content="Predicting a biologic medicine's immune fate from its sequence: the general, open capability the OpenImmune programme exists to create.">
   <link rel="canonical" href="https://openimmune.ai/why-00-ai-moonshot.html">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
   <meta name="theme-color" content="#08060F">
 
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
   <meta property="og:site_name" content="OpenImmune">
   <meta property="og:url" content="https://openimmune.ai/why-00-ai-moonshot.html">
   <meta property="og:title" content="The AI moonshot: OpenImmune">
@@ -41,9 +42,103 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=6">
+  <link rel="stylesheet" href="styles.css?v=7">
   <script>document.documentElement.classList.add('js');</script>
 
+
+  <!-- Structured data: entity anchor and page provenance -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": [
+          "Organization",
+          "NGO"
+        ],
+        "@id": "https://openimmune.ai/#organization",
+        "name": "OpenImmune",
+        "url": "https://openimmune.ai/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://openimmune.ai/assets/icon-512.png",
+          "width": 512,
+          "height": 512
+        },
+        "image": "https://openimmune.ai/assets/og-image.png",
+        "description": "A UK-led, not-for-profit research programme building an open scientific foundation for predicting the immunogenicity of biologic medicines: whether the body's immune system will attack a treatment.",
+        "sameAs": [
+          "https://www.linkedin.com/company/openimmune"
+        ],
+        "founder": {
+          "@type": "Person",
+          "name": "Tom Fleming",
+          "jobTitle": "Founder and CEO"
+        },
+        "knowsAbout": [
+          "Immunogenicity",
+          "Anti-drug antibodies",
+          "Biologic medicines",
+          "Open data"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://openimmune.ai/#website",
+        "url": "https://openimmune.ai/",
+        "name": "OpenImmune",
+        "description": "A UK-led, not-for-profit research programme building an open scientific foundation for predicting the immunogenicity of biologic medicines: whether the body's immune system will attack a treatment.",
+        "publisher": {
+          "@id": "https://openimmune.ai/#organization"
+        },
+        "inLanguage": "en-GB"
+      },
+      {
+        "@type": "Article",
+        "@id": "https://openimmune.ai/why-00-ai-moonshot.html#article",
+        "headline": "The AI moonshot: predicting immunogenicity from sequence",
+        "description": "Predicting whether the immune system will react to a biologic medicine from its sequence, and why open data at scale is the missing piece.",
+        "mainEntityOfPage": "https://openimmune.ai/why-00-ai-moonshot.html",
+        "isPartOf": {
+          "@id": "https://openimmune.ai/#website"
+        },
+        "author": {
+          "@id": "https://openimmune.ai/#organization"
+        },
+        "publisher": {
+          "@id": "https://openimmune.ai/#organization"
+        },
+        "datePublished": "2026-07-14",
+        "dateModified": "2026-08-27",
+        "image": "https://openimmune.ai/assets/og-image.png",
+        "inLanguage": "en-GB"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://openimmune.ai/why-00-ai-moonshot.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://openimmune.ai/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Why this matters",
+            "item": "https://openimmune.ai/why-this-matters.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "The AI moonshot: predicting immunogenicity from sequence"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -89,6 +184,7 @@
   </header>
 
   <main id="main">
+  <article class="topic-article">
 
     <section class="topic-hero">
       <img class="topic-hero__field" src="assets/field-soft.svg" alt="" aria-hidden="true">
@@ -107,11 +203,18 @@
 
     <hr class="rule">
 
+  <!-- ANSWER-FIRST SUMMARY -->
+  <section class="section section--answer">
+    <div class="container">
+      <p class="answer">Immunogenicity is the tendency of a biologic medicine to provoke an immune response against itself. Predicting it from a protein's sequence, before anyone is treated, is the general capability OpenImmune exists to create. The methods are ready; the open data needed to train them has never been built.</p>
+    </div>
+  </section>
+
     <section class="section">
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">Why this matters</span>
-          <h2>Answer the question once, in the open</h2>
+          <h2 id="answer-the-question-once-in-the-open">Answer the question once, in the open</h2>
         </div>
         <div class="prose reveal">
           <p>Behind every other page here is a single question: will a person's body accept the medicine meant to help them? Today that question is answered slowly and expensively, one drug at a time, and sometimes only after someone has already reacted. This is the chance to answer it differently, and to answer it once.</p>
@@ -124,7 +227,7 @@
         <div class="feature-grid">
           <div class="section-head reveal" style="margin-bottom:0">
             <span class="eyebrow">The challenge</span>
-            <h2>Harder than shape, in one specific way</h2>
+            <h2 id="harder-than-shape-in-one-specific-way">Harder than shape, in one specific way</h2>
           </div>
           <div class="prose reveal">
             <p>AlphaFold answered one great sequence-to-function question: given a sequence, what shape does it fold into? Immunogenicity is the next question of comparable reach, and it is harder in one specific sense. It is not a property of the molecule alone, but of the molecule in a host: it depends on how a protein is processed, on presentation by highly variable immune-recognition molecules, and on each person's own immune repertoire.</p>
@@ -137,7 +240,7 @@
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">The evidence</span>
-          <h2>The gap, in numbers</h2>
+          <h2 id="the-gap-in-numbers">The gap, in numbers</h2>
           <p class="standfirst">The science is public. The scale of what a solution would serve, and the size of the gap, are not in dispute.</p>
         </div>
         <ul class="stats reveal-stagger">
@@ -162,13 +265,14 @@
           <a class="ref" href="https://www.grandviewresearch.com/industry-analysis/biologics-market" target="_blank" rel="noopener">Grand View Research</a>
         </li>
         </ul>
+        <p class="stats-note">Every figure here is drawn from published literature and linked to its source. <a href="what-is-immunogenicity.html">Immunogenicity</a> of this kind is what OpenImmune is building the open dataset and model to make predictable, before treatment begins.</p>
       </div>
     </section>
     <section class="section surface">
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">Why it is tractable now</span>
-          <h2>The blocker was never the algorithms</h2>
+          <h2 id="the-blocker-was-never-the-algorithms">The blocker was never the algorithms</h2>
         </div>
         <div class="prose reveal">
           <p>AlphaFold did not succeed because the algorithms suddenly appeared. It succeeded because half a century of open structural data in the Protein Data Bank, together with a shared benchmark run every two years since 1994 (<a class="ref" href="https://www.rcsb.org/pages/about-us/history" target="_blank" rel="noopener">Protein Data Bank</a>; <a class="ref" href="https://predictioncenter.org" target="_blank" rel="noopener">CASP, predictioncenter.org</a>), gave a modern model something to learn from and a way to prove it worked. Immunogenicity has had no equivalent: no comparable open record of immune outcomes, and no shared benchmark.</p>
@@ -180,7 +284,7 @@
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">The prize</span>
-          <h2>Two payoffs, on two horizons</h2>
+          <h2 id="two-payoffs-on-two-horizons">Two payoffs, on two horizons</h2>
         </div>
         <div class="prose reveal">
           <p>The immediate one is a general capability that lowers immune risk earlier and more cheaply across the whole biologics pipeline, the return that every other page in this section draws on.</p>
@@ -202,7 +306,7 @@
     <section class="section cta-band">
       <div class="container">
         <div class="cta-panel reveal">
-          <h2>Work with us</h2>
+          <h2 id="work-with-us">Work with us</h2>
           <p>OpenImmune is open to partnership, funding, and scientific collaboration. If you are working on this problem, or want to help solve it, we would like to hear from you.</p>
           <div class="hero__cta">
             <a class="btn btn--primary" href="contact.html">Get in touch <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
@@ -211,7 +315,8 @@
       </div>
     </section>
 
-  </main>
+    </article>
+</main>
 
   <footer class="site-footer">
     <div class="container">
@@ -228,6 +333,12 @@
       </div>
       <div class="footer-meta">
         <a class="link" href="contact.html">Contact</a>
+        <nav class="footer-links" aria-label="Background">
+          <a href="what-is-immunogenicity.html">What is immunogenicity?</a>
+          <a href="what-is-an-anti-drug-antibody.html">Anti-drug antibodies</a>
+          <a href="glossary.html">Glossary</a>
+        </nav>
+        <span class="page-stamp">Last reviewed <time datetime="2026-08-27">27 August 2026</time></span>
         <span class="copyright">&copy; 2026 OpenImmune</span>
       </div>
     </div>

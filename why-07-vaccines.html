@@ -16,9 +16,10 @@
   <title>Vaccines: immunogenicity by design: OpenImmune</title>
   <meta name="description" content="The inverted case: the one setting where an immune response is the entire point, and the same model, run the other way, becomes a tool for designing it.">
   <link rel="canonical" href="https://openimmune.ai/why-07-vaccines.html">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
   <meta name="theme-color" content="#08060F">
 
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
   <meta property="og:site_name" content="OpenImmune">
   <meta property="og:url" content="https://openimmune.ai/why-07-vaccines.html">
   <meta property="og:title" content="Vaccines: immunogenicity by design: OpenImmune">
@@ -41,9 +42,103 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=6">
+  <link rel="stylesheet" href="styles.css?v=7">
   <script>document.documentElement.classList.add('js');</script>
 
+
+  <!-- Structured data: entity anchor and page provenance -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": [
+          "Organization",
+          "NGO"
+        ],
+        "@id": "https://openimmune.ai/#organization",
+        "name": "OpenImmune",
+        "url": "https://openimmune.ai/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://openimmune.ai/assets/icon-512.png",
+          "width": 512,
+          "height": 512
+        },
+        "image": "https://openimmune.ai/assets/og-image.png",
+        "description": "A UK-led, not-for-profit research programme building an open scientific foundation for predicting the immunogenicity of biologic medicines: whether the body's immune system will attack a treatment.",
+        "sameAs": [
+          "https://www.linkedin.com/company/openimmune"
+        ],
+        "founder": {
+          "@type": "Person",
+          "name": "Tom Fleming",
+          "jobTitle": "Founder and CEO"
+        },
+        "knowsAbout": [
+          "Immunogenicity",
+          "Anti-drug antibodies",
+          "Biologic medicines",
+          "Open data"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://openimmune.ai/#website",
+        "url": "https://openimmune.ai/",
+        "name": "OpenImmune",
+        "description": "A UK-led, not-for-profit research programme building an open scientific foundation for predicting the immunogenicity of biologic medicines: whether the body's immune system will attack a treatment.",
+        "publisher": {
+          "@id": "https://openimmune.ai/#organization"
+        },
+        "inLanguage": "en-GB"
+      },
+      {
+        "@type": "Article",
+        "@id": "https://openimmune.ai/why-07-vaccines.html#article",
+        "headline": "Vaccines: immunogenicity by design",
+        "description": "The one setting where an immune response is the entire point, and the same model, run the other way, becomes a tool for designing it.",
+        "mainEntityOfPage": "https://openimmune.ai/why-07-vaccines.html",
+        "isPartOf": {
+          "@id": "https://openimmune.ai/#website"
+        },
+        "author": {
+          "@id": "https://openimmune.ai/#organization"
+        },
+        "publisher": {
+          "@id": "https://openimmune.ai/#organization"
+        },
+        "datePublished": "2026-07-14",
+        "dateModified": "2026-08-27",
+        "image": "https://openimmune.ai/assets/og-image.png",
+        "inLanguage": "en-GB"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://openimmune.ai/why-07-vaccines.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://openimmune.ai/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Why this matters",
+            "item": "https://openimmune.ai/why-this-matters.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Vaccines: immunogenicity by design"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -89,6 +184,7 @@
   </header>
 
   <main id="main">
+  <article class="topic-article">
 
     <section class="topic-hero">
       <img class="topic-hero__field" src="assets/field-soft.svg" alt="" aria-hidden="true">
@@ -107,11 +203,18 @@
 
     <hr class="rule">
 
+  <!-- ANSWER-FIRST SUMMARY -->
+  <section class="section section--answer">
+    <div class="container">
+      <p class="answer">A vaccine works by provoking an immune response, so here immunogenicity is the goal rather than the problem. The same model that predicts an unwanted response can be run the other way to design a wanted one. That inversion is why the open foundation OpenImmune is building reaches beyond therapeutic proteins.</p>
+    </div>
+  </section>
+
     <section class="section">
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">Why this matters</span>
-          <h2>The same tool, turned the other way</h2>
+          <h2 id="the-same-tool-turned-the-other-way">The same tool, turned the other way</h2>
         </div>
         <div class="prose reveal">
           <p>Vaccines are the one place where an immune response to a foreign protein is exactly what we want. That makes this the mirror image of every other page here: the same tool that predicts an unwanted reaction to a drug can, turned the other way, predict and strengthen a wanted one.</p>
@@ -124,7 +227,7 @@
         <div class="feature-grid">
           <div class="section-head reveal" style="margin-bottom:0">
             <span class="eyebrow">What is happening</span>
-            <h2>A weak vaccine, mechanically explained</h2>
+            <h2 id="a-weak-vaccine-mechanically-explained">A weak vaccine, mechanically explained</h2>
           </div>
           <div class="prose reveal">
             <p>The capability OpenImmune is building, predicting from a sequence and a person's own genetics whether the immune system's helper response will follow, is precisely the capability a vaccine needs to work. A protein antigen cannot raise a strong, durable antibody response without antigen-specific helper T cells, and the strength of that help scales with how well the vaccine's helper targets are presented.</p>
@@ -137,7 +240,7 @@
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">The evidence</span>
-          <h2>Vaccine response is inherited, and predictable</h2>
+          <h2 id="vaccine-response-is-inherited-and-predictable">Vaccine response is inherited, and predictable</h2>
           <p class="standfirst">The strongest evidence is that vaccine response is heritable and that the immune-recognition genes are its dominant genetic determinant: the therapeutic case, run in reverse.</p>
         </div>
         <ul class="stats reveal-stagger">
@@ -162,13 +265,14 @@
           <a class="ref" href="https://www.cdc.gov/flu-vaccines-work/php/effectiveness-studies/past-seasons-estimates.html" target="_blank" rel="noopener">CDC past-season estimates</a>
         </li>
         </ul>
+        <p class="stats-note">Every figure here is drawn from published literature and linked to its source. <a href="what-is-immunogenicity.html">Immunogenicity</a> of this kind is what OpenImmune is building the open dataset and model to make predictable, before treatment begins.</p>
       </div>
     </section>
     <section class="section surface" id="applies">
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">Where it applies</span>
-          <h2>Effectively everyone, on two horizons</h2>
+          <h2 id="effectively-everyone-on-two-horizons">Effectively everyone, on two horizons</h2>
           <p class="standfirst">Precision and rescue now; preparedness later.</p>
         </div>
         <ul class="pills reveal"><li>Hepatitis B and routine vaccines</li><li>Personalised cancer vaccines</li><li>Emerging-pathogen preparedness</li></ul>
@@ -192,7 +296,7 @@
     <section class="section cta-band">
       <div class="container">
         <div class="cta-panel reveal">
-          <h2>Work with us</h2>
+          <h2 id="work-with-us">Work with us</h2>
           <p>OpenImmune is open to partnership, funding, and scientific collaboration. If you are working on this problem, or want to help solve it, we would like to hear from you.</p>
           <div class="hero__cta">
             <a class="btn btn--primary" href="contact.html">Get in touch <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
@@ -201,7 +305,8 @@
       </div>
     </section>
 
-  </main>
+    </article>
+</main>
 
   <footer class="site-footer">
     <div class="container">
@@ -218,6 +323,12 @@
       </div>
       <div class="footer-meta">
         <a class="link" href="contact.html">Contact</a>
+        <nav class="footer-links" aria-label="Background">
+          <a href="what-is-immunogenicity.html">What is immunogenicity?</a>
+          <a href="what-is-an-anti-drug-antibody.html">Anti-drug antibodies</a>
+          <a href="glossary.html">Glossary</a>
+        </nav>
+        <span class="page-stamp">Last reviewed <time datetime="2026-08-27">27 August 2026</time></span>
         <span class="copyright">&copy; 2026 OpenImmune</span>
       </div>
     </div>
