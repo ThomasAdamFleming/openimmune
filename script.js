@@ -290,6 +290,13 @@
             if (ok) {
               form.reset();
               setStatus("success", "Thank you. Your message has been sent, and we will be in touch.");
+              /* Count the enquiry in analytics. Most submissions never reach
+                 thank-you.html, because with JS the confirmation appears in
+                 place, so the page view alone would miss them. Guarded, so a
+                 blocked or unloaded tag cannot break the form. */
+              if (typeof window.gtag === "function") {
+                window.gtag("event", "contact_submit");
+              }
             } else {
               /* Web3Forms returns { success: false, message: "..." }. That text is
                  for diagnosis, not for visitors, so it goes to the console only. */
