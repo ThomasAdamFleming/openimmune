@@ -15,9 +15,7 @@ Allow: /
 User-agent: bingbot
 Allow: /
 
-# --- AI search and retrieval: allowed. These are the agents that send
-#     referrals and produce citations, and blocking one removes the site
-#     from that engine's answers entirely. ---
+# --- AI search and retrieval: allowed. ---
 User-agent: OAI-SearchBot
 Allow: /
 
@@ -40,8 +38,7 @@ Allow: /
 #     GPTBot, ClaudeBot, CCBot, Google-Extended and Applebot-Extended are
 #     covered by the wildcard above and are free to crawl. ---
 
-# --- Non-compliant scraper. Documented as inconsistent with robots.txt, and
-#     GitHub Pages puts no edge layer in front of the site to enforce it. ---
+# --- Non-compliant scraper. ---
 User-agent: Bytespider
 Disallow: /
 
