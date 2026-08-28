@@ -756,6 +756,41 @@ a { color: var(--accent-soft); }
 }
 .member__bio { color: var(--text-muted); font-size: 1rem; line-height: 1.55; }
 
+/* The identity row: portrait on the left, a quiet link to the person on the
+   right. The link sits in Dust until you reach for it, so the card keeps its
+   one luminous moment for the portrait. */
+.member__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.member__li {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  color: var(--text-faint);
+  background: transparent;
+  transition: color var(--dur-fast) var(--ease),
+              border-color var(--dur-fast) var(--ease),
+              background-color var(--dur-fast) var(--ease),
+              transform 0.5s var(--ease-spring);
+}
+.member__li svg { display: block; fill: currentColor; }
+/* hovering the card hints at the link; only the link itself lights up */
+.member:hover .member__li { color: var(--text-muted); border-color: var(--border-strong); }
+.member__li:hover,
+.member__li:focus-visible {
+  color: var(--signal);
+  border-color: var(--accent-soft);
+  background: var(--wash);
+  transform: translateY(-2px);
+}
+
 /* ----------------------------------------------------------------------------
    12. CONTACT FORM
    -------------------------------------------------------------------------- */
@@ -1775,6 +1810,7 @@ html.js .dimension.is-visible::before { width: clamp(2.5rem, 6vw, 5rem); }
 .link:focus-visible::after { background: var(--interactive-strong); }
 
 .btn--ghost:focus-visible { border-color: var(--interactive-border); }
+.member__li:focus-visible { border-color: var(--interactive-border); background: var(--interactive-wash); }
 
 .nav .nav-group__menu a:focus-visible i,
 .nav .nav-group__menu a:focus-visible b { color: var(--accent-interactive); }
@@ -1855,6 +1891,7 @@ html.js .dimension.is-visible::before { width: clamp(2.5rem, 6vw, 5rem); }
   /* Panels take a cyan border on contact, in place of the stronger violet. */
   .card:hover,
   .member:hover,
+  .member__li:hover,
   .impact-card:hover,
   .matter-card:hover,
   .matter-lead:hover,
@@ -1862,6 +1899,7 @@ html.js .dimension.is-visible::before { width: clamp(2.5rem, 6vw, 5rem); }
   .topic-nav a:hover,
   .audience:hover,
   .pills li:hover { border-color: var(--interactive-border); }
+  .member__li:hover { background: var(--interactive-wash); }
 
   .audience:hover { background: rgba(28, 18, 56, 0.6); }
   .pills li:hover { background: var(--interactive-wash); }
