@@ -24,6 +24,8 @@
      19. Responsive additions for the elevation layer
      20. Why this matters (dropdown, overview, topic pages)
      21. Interaction accent (Signal Cyan on hover, focus, and data only)
+     22. Retrievability layer (answer blocks, contents, tables, glossary)
+     23. Voices (independent quotes from the field, and the pull quote)
    ========================================================================== */
 
 /* ----------------------------------------------------------------------------
@@ -2222,4 +2224,155 @@ h1[id], h2[id], h3[id], section[id], .glossary__row[id] {
 @media (prefers-reduced-motion: reduce) {
   .related__item:hover,
   .related__item:focus-visible { transform: none; }
+}
+
+/* ============================================================================
+   23. VOICES  (independent quotes from the field, and the single pull quote)
+
+   Four voices, four vantage points, set as fine lines of light in the dark
+   field. No boxes, no quotation glyphs, no photographs: the luminous rule is
+   the only mark, and the four of them read as one motif rather than as four
+   competing accents. The rules draw downwards, staggered, as the section
+   arrives, then hold.
+   ========================================================================== */
+
+/* --- 23.1 The band ---------------------------------------------------------
+   An interlude rather than another prose section, so it sits outside the
+   surface / void alternation and carries the recurring Aurora hairline at
+   both edges. */
+.voices-band {
+  position: relative;
+  background:
+    radial-gradient(88% 68% at 50% 0%, rgba(58, 34, 112, 0.30), rgba(8, 6, 15, 0) 62%),
+    var(--bg);
+}
+.voices-band::before,
+.voices-band::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    rgba(124, 58, 237, 0) 0%,
+    rgba(124, 58, 237, 0.45) 50%,
+    rgba(124, 58, 237, 0) 100%);
+  pointer-events: none;
+}
+.voices-band::before { top: 0; }
+.voices-band::after  { bottom: 0; }
+
+/* --- 23.2 The grid --------------------------------------------------------- */
+.voices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2.25rem, 1.4rem + 3vw, 3.75rem) clamp(2rem, 1rem + 4vw, 5rem);
+}
+
+/* --- 23.3 One voice -------------------------------------------------------- */
+.voice {
+  position: relative;
+  margin: 0;
+  padding-left: clamp(1.25rem, 0.9rem + 1.2vw, 1.9rem);
+  /* A column, so the source labels settle on a common line across each row
+     however unevenly the quotes above them fall. */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+/* The signal: a fine vertical light standing in the dark. */
+.voice::before,
+.pullquote::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.18em;
+  bottom: 0.18em;
+  width: 2px;
+  border-radius: 1px;
+  background: linear-gradient(180deg,
+    var(--accent) 0%,
+    var(--accent-soft) 52%,
+    rgba(167, 139, 250, 0.14) 100%);
+  opacity: 0.72;
+  transform-origin: top center;
+  transition: opacity var(--dur) var(--ease);
+}
+
+.voice__quote { margin: 0; }
+.voice__quote p {
+  margin: 0;
+  max-width: 46ch;
+  font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.2rem);
+  line-height: 1.6;
+  letter-spacing: -0.006em;
+  color: var(--text);
+}
+.voice__quote p + p { margin-top: var(--space-4); }
+
+.voice__source,
+.pullquote__source {
+  display: block;
+  margin-top: clamp(0.9rem, 0.75rem + 0.55vw, 1.35rem);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+}
+/* In the grid, the label falls to the foot of its cell so that the row reads
+   along one line. */
+.voice__source {
+  margin-top: auto;
+  padding-top: clamp(0.9rem, 0.75rem + 0.55vw, 1.35rem);
+}
+
+/* --- 23.4 The pull quote ---------------------------------------------------
+   The same mark at display scale, for a single quote inside a prose section.
+   This is the luminous moment on the page that carries it, so it is used once
+   and never twice. */
+.pullquote {
+  position: relative;
+  margin: clamp(2.25rem, 1.8rem + 1.8vw, 3.25rem) 0 0;
+  padding-left: clamp(1.25rem, 0.9rem + 1.2vw, 1.9rem);
+  max-width: var(--measure);
+}
+.pullquote blockquote { margin: 0; }
+.pullquote blockquote p {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.3rem, 1.1rem + 0.85vw, 1.8rem);
+  line-height: 1.36;
+  letter-spacing: -0.015em;
+  color: var(--signal);
+}
+
+/* --- 23.5 Hover: the line brightens, gated to fine pointers ---------------- */
+@media (hover: hover) and (pointer: fine) {
+  .voice:hover::before,
+  .pullquote:hover::before { opacity: 1; }
+}
+
+/* --- 23.6 Arrival: the lines draw downwards, staggered with the reveal -----
+   Scoped to html.js, so without JavaScript every rule is simply present. */
+html.js .voices .voice::before {
+  transform: scaleY(0);
+  transition: transform var(--dur-slow) var(--ease-out), opacity var(--dur) var(--ease);
+}
+html.js .voices.is-visible .voice::before { transform: scaleY(1); }
+html.js .voices.is-visible .voice:nth-child(2)::before { transition-delay: 0.09s; }
+html.js .voices.is-visible .voice:nth-child(3)::before { transition-delay: 0.18s; }
+html.js .voices.is-visible .voice:nth-child(4)::before { transition-delay: 0.27s; }
+
+/* --- 23.7 Responsive ------------------------------------------------------- */
+@media (max-width: 900px) {
+  .voices { grid-template-columns: 1fr; }
+  .voice__quote p { max-width: var(--measure); }
+}
+
+/* --- 23.8 Reduced motion --------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html.js .voices .voice::before { transform: none; }
 }
