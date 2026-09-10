@@ -2414,3 +2414,223 @@ html.js .voices.is-visible .voice:nth-child(4)::before { transition-delay: 0.27s
 @media (prefers-reduced-motion: reduce) {
   html.js .voices .voice::before { transform: none; }
 }
+
+/* ============================================================================
+   24. PHASE I FUNDING METER  (the raise, and the philanthropic ask)
+
+   One instrument panel, sitting directly under the answer-first summary. The
+   track is structure; the single bright point at the head of the fill is the
+   luminous moment for this view, so nothing else in the panel glows. Every
+   figure is real text in the markup, so the panel reads correctly with no
+   JavaScript and with no CSS.
+   ========================================================================== */
+
+.phase-band { position: relative; }
+
+.phase {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(85% 110% at 6% -25%, rgba(124,58,237,0.13), rgba(18,11,34,0) 55%),
+    var(--panel);
+  box-shadow: var(--shadow-float), inset 0 1px 0 var(--glass-hi);
+  padding: clamp(1.75rem, 1.2rem + 2.6vw, 3.25rem);
+}
+
+/* The pointer-tracked spotlight, matching the cards elsewhere on the site */
+.phase::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(420px circle at var(--mx) var(--my), rgba(124,58,237,0.16), transparent 66%);
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease);
+  pointer-events: none;
+}
+.phase:hover::before { opacity: 1; }
+
+/* --- 24.1 The meter head --------------------------------------------------- */
+.phase__title {
+  font-size: var(--fs-h2);
+  margin: var(--space-4) 0 0;
+}
+.phase__lead {
+  color: var(--text-muted);
+  max-width: 58ch;
+  margin: var(--space-4) 0 0;
+}
+
+/* --- 24.2 The two figures -------------------------------------------------- */
+.phase__figures {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-5);
+  margin: clamp(2rem, 1.5rem + 2vw, 3rem) 0 var(--space-4);
+}
+.phase__figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.phase__figure--target { text-align: right; align-items: flex-end; }
+
+.phase__amount {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.2rem, 1.7rem + 2.4vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: var(--signal);
+  font-variant-numeric: tabular-nums;
+}
+/* The committed unit picks up the data tone, so the figure and the bar below
+   it read as one instrument. The target's stays muted. */
+.phase__unit { font-size: 0.46em; color: var(--cyan); margin-left: 0.04em; letter-spacing: 0; }
+
+/* The target reads as the scale, not as a second headline figure */
+.phase__figure--target .phase__amount { color: var(--text-muted); font-size: clamp(1.5rem, 1.25rem + 1.1vw, 2rem); }
+.phase__figure--target .phase__unit { color: var(--text-faint); }
+
+.phase__caption {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-faint);
+}
+
+/* --- 24.3 The track and the fill ------------------------------------------- */
+.phase__track {
+  position: relative;
+  height: 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(103, 232, 249, 0.07);
+  box-shadow: inset 0 0 0 1px var(--border);
+  overflow: visible;
+}
+/* Fine graduations at the quarters, so it reads as an instrument */
+.phase__track::before {
+  content: "";
+  position: absolute;
+  inset: 3px 0;
+  border-radius: inherit;
+  background: repeating-linear-gradient(90deg,
+    rgba(110,102,144,0) 0,
+    rgba(110,102,144,0) calc(25% - 1px),
+    rgba(110,102,144,0.45) calc(25% - 1px),
+    rgba(110,102,144,0.45) 25%);
+  pointer-events: none;
+}
+.phase__fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--phase-pct, 0%);
+  border-radius: var(--radius-pill);
+  /* Signal Cyan, as the data colour: the raise is a figure, not a call to
+     action, so it reads in the reserved data tone rather than in Aurora.
+     Tints of the one token, brightening out of the dark field towards the
+     head, so no second colour enters the system. */
+  background: linear-gradient(90deg,
+    rgba(103, 232, 249, 0.42) 0%,
+    rgba(103, 232, 249, 0.78) 48%,
+    var(--cyan) 100%);
+  box-shadow: 0 0 22px -6px rgba(103, 232, 249, 0.55);
+  overflow: hidden;
+}
+/* A slow sweep of light along the filled portion */
+.phase__fill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(242,238,255,0) 0%, rgba(242,238,255,0.28) 50%, rgba(242,238,255,0) 100%);
+  transform: translateX(-100%);
+}
+
+/* The one bright point: the head of the fill */
+.phase__point {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  transform: translate(50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(closest-side, #FFFFFF 0 24%, var(--signal) 32%, rgba(103,232,249,0.55) 48%, rgba(103,232,249,0) 100%);
+  box-shadow: 0 0 14px 2px rgba(103, 232, 249, 0.45);
+}
+
+/* --- 24.4 What is left ----------------------------------------------------- */
+.phase__remaining {
+  margin: var(--space-4) 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  letter-spacing: 0.04em;
+  color: var(--text-faint);
+}
+.phase__remaining-figure { color: var(--text-muted); }
+
+/* --- 24.5 The ask ---------------------------------------------------------- */
+.phase__divider {
+  margin-block: clamp(1.75rem, 1.4rem + 1.4vw, 2.5rem);
+  max-width: none;
+}
+.phase__ask h3 {
+  font-size: var(--fs-h3);
+  margin: var(--space-4) 0 var(--space-4);
+}
+.phase__ask p {
+  color: var(--text-muted);
+  max-width: var(--measure);
+  margin: 0 0 var(--space-6);
+}
+.phase__ask .hero__cta { justify-content: flex-start; }
+
+/* --- 24.6 Arrival: the fill draws out, then the point settles ---------------
+   Scoped to html.js, so with JavaScript off the bar is simply already filled. */
+html.js .phase .phase__fill {
+  width: 0;
+  transition: width 1.5s var(--ease-out) 0.2s;
+}
+html.js .phase.is-visible .phase__fill { width: var(--phase-pct, 0%); }
+
+html.js .phase .phase__point { opacity: 0; transition: opacity var(--dur) var(--ease) 1.5s; }
+html.js .phase.is-visible .phase__point {
+  opacity: 1;
+  animation: phase-pulse 3.6s var(--ease) 2.1s infinite;
+}
+@keyframes phase-pulse {
+  0%, 100% { transform: translate(50%, -50%) scale(1); }
+  50%      { transform: translate(50%, -50%) scale(1.14); }
+}
+
+html.js .phase.is-visible .phase__fill::after {
+  animation: phase-sweep 5s var(--ease) 2s infinite;
+}
+@keyframes phase-sweep {
+  0%   { transform: translateX(-100%); }
+  55%  { transform: translateX(100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* --- 24.7 Responsive -------------------------------------------------------- */
+@media (max-width: 560px) {
+  .phase__figures { align-items: flex-end; }
+  .phase__amount { font-size: clamp(2rem, 1.5rem + 4vw, 2.6rem); }
+  .phase__ask .hero__cta { flex-direction: column; align-items: stretch; }
+  .phase__ask .hero__cta .btn { justify-content: center; }
+}
+
+/* --- 24.8 Reduced motion ----------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html.js .phase .phase__fill { width: var(--phase-pct, 0%); transition: none; }
+  html.js .phase .phase__point { opacity: 1; transition: none; }
+  html.js .phase.is-visible .phase__point { animation: none; }
+  html.js .phase.is-visible .phase__fill::after { animation: none; }
+}

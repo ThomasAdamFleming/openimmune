@@ -45,7 +45,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=9">
+  <link rel="stylesheet" href="styles.css?v=11">
   <script>document.documentElement.classList.add('js');</script>
 
   <!-- Structured data: entity anchor and page provenance -->
@@ -188,6 +188,50 @@
   <section class="section section--answer">
     <div class="container">
       <p class="answer">OpenImmune is a UK-led, not-for-profit research programme building the first open, foundational dataset for predicting the immunogenicity of biologic medicines: whether a given protein sequence will provoke an immune response in a given patient. Every output is released openly, under FAIR principles, for anyone to use.</p>
+    </div>
+  </section>
+
+  <!-- PHASE I FUNDING PROGRESS AND THE PHILANTHROPIC ASK -->
+  <section class="section section--tight phase-band" id="phase-i" aria-labelledby="phase-i-funding">
+    <div class="container">
+      <div class="phase reveal">
+
+        <div class="phase__meter">
+          <span class="eyebrow">Phase I funding</span>
+          <h2 class="phase__title" id="phase-i-funding">The first &pound;5m is committed</h2>
+          <p class="phase__lead">Phase I builds and validates the dataset itself: a foundational open resource, released under FAIR principles, that stands on its own the day it is published.</p>
+
+          <div class="phase__figures">
+            <p class="phase__figure">
+              <span class="phase__amount">&pound;<span class="phase__value" data-to="5">5</span><span class="phase__unit">m</span></span>
+              <span class="phase__caption">Committed</span>
+            </p>
+            <p class="phase__figure phase__figure--target">
+              <span class="phase__amount">&pound;<span class="phase__value" data-to="15">15</span><span class="phase__unit">m</span></span>
+              <span class="phase__caption">Phase I total</span>
+            </p>
+          </div>
+
+          <div class="phase__track" style="--phase-pct:33.33%" aria-hidden="true">
+            <span class="phase__fill"><span class="phase__point"></span></span>
+          </div>
+
+          <p class="phase__remaining"><span class="phase__remaining-figure">&pound;10m</span> still to raise</p>
+        </div>
+
+        <hr class="rule phase__divider">
+
+        <div class="phase__ask">
+          <span class="eyebrow">For philanthropic partners</span>
+          <h3 id="the-remaining-10m">The remaining &pound;10m</h3>
+          <p>That balance is what takes the work from a funded start to a finished dataset, released openly for anyone to use. If you fund science the market will not build on its own, we would welcome a conversation.</p>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="contact.html">Talk to us about Phase I <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
+            <a class="btn btn--ghost" href="#funding">Why it is funded this way</a>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -441,6 +485,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=5" defer></script>
+  <script src="script.js?v=6" defer></script>
 </body>
 </html>

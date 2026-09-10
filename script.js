@@ -170,7 +170,7 @@
      5b. Card spotlight: a soft aurora glow follows the cursor across cards.
      ------------------------------------------------------------------------ */
   if (finePointer && !prefersReduced) {
-    var spotlit = document.querySelectorAll(".card, .member, .matter-card, .matter-lead, .impact-card, .stat, .topic-nav a");
+    var spotlit = document.querySelectorAll(".card, .member, .matter-card, .matter-lead, .impact-card, .stat, .phase, .topic-nav a");
     spotlit.forEach(function (el) {
       el.addEventListener("pointermove", function (e) {
         var r = el.getBoundingClientRect();
@@ -210,8 +210,10 @@
   });
 
   /* --------------------------------------------------------------------------
-     5d. Evidence stats: numbers count up once, when they scroll into view.
-         The final value is already in the HTML, so without JS nothing is lost.
+     5d. Figures that count up once, when they scroll into view: the evidence
+         stats on "Why this matters", and the Phase I funding meter on the home
+         page. The final value is already in the HTML, so without JS nothing is
+         lost, and the bar itself fills through CSS off the reveal observer.
      ------------------------------------------------------------------------ */
   var animateCount = function (el) {
     var raw = el.getAttribute("data-to");
@@ -231,7 +233,7 @@
     };
     raf(step);
   };
-  var counters = document.querySelectorAll(".stat__num[data-to]");
+  var counters = document.querySelectorAll(".stat__num[data-to], .phase__value[data-to]");
   if (counters.length && !prefersReduced && "IntersectionObserver" in window) {
     var cio = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
