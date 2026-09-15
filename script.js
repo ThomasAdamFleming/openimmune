@@ -9,6 +9,7 @@
    4. Scroll-progress signal bar
    5. Pointer parallax (hero) and card spotlight
    6. Contact form (Web3Forms)
+   7. Structure field: the light that travels down the molecule on scroll
    ========================================================================== */
 (function () {
   "use strict";
@@ -316,6 +317,52 @@
           if (btn) btn.disabled = false;
         });
     });
+  }
+
+  /* --------------------------------------------------------------------------
+     7. Structure field: a soft light travels down the complex as the page is
+        read, and the form itself counter-drifts a little for depth. Both are
+        transforms on a single element, set from one rAF-throttled scroll
+        handler, so the cost is a compositor operation rather than a repaint.
+        Without JS, and under reduced motion, the light simply holds still
+        near the top of the view, which is what the CSS default gives.
+     ------------------------------------------------------------------------ */
+  var structure = document.querySelector(".structure");
+  var beam = structure && structure.querySelector(".structure__beam");
+  if (structure && beam && !prefersReduced) {
+    var sTicking = false;
+    var vh = window.innerHeight || 800;
+    var beamH = vh * 0.62;
+
+    var measureStructure = function () {
+      vh = window.innerHeight || 800;
+      beamH = beam.offsetHeight || vh * 0.62;
+    };
+
+    var updateStructure = function () {
+      var doc = document.documentElement;
+      var max = (doc.scrollHeight - doc.clientHeight) || 1;
+      var ratio = Math.min(1, Math.max(0, window.scrollY / max));
+      /* The light enters from above the fold and leaves below it, once across
+         the whole document, however long the page is. */
+      structure.style.setProperty("--lit",
+        (ratio * (vh + beamH) - beamH).toFixed(1) + "px");
+      structure.style.setProperty("--struct-drift",
+        (ratio * vh * -0.05).toFixed(1) + "px");
+      sTicking = false;
+    };
+
+    var onStructureScroll = function () {
+      if (!sTicking) { sTicking = true; raf(updateStructure); }
+    };
+
+    measureStructure();
+    updateStructure();
+    window.addEventListener("scroll", onStructureScroll, { passive: true });
+    window.addEventListener("resize", function () {
+      measureStructure();
+      onStructureScroll();
+    }, { passive: true });
   }
 
 })();

@@ -544,7 +544,9 @@ a { color: var(--accent-soft); }
 /* ----------------------------------------------------------------------------
    8. SECTIONS (generic prose blocks)
    -------------------------------------------------------------------------- */
-.surface { background: var(--surface); }
+/* A trace of transparency, so the structure field in section 25 reads through
+   the page rather than only in the gaps between sections. Deep Space. */
+.surface { background: rgba(18, 11, 34, 0.84); }
 
 .feature-grid {
   display: grid;
@@ -898,7 +900,7 @@ a { color: var(--accent-soft); }
 .site-footer {
   border-top: 1px solid var(--border);
   padding-block: clamp(2.5rem, 2rem + 3vw, 4rem);
-  background: var(--void);
+  background: rgba(8, 6, 15, 0.8);   /* Void, see section 25 */
 }
 .site-footer .container {
   display: flex;
@@ -2633,4 +2635,113 @@ html.js .phase.is-visible .phase__fill::after {
   html.js .phase .phase__point { opacity: 1; transition: none; }
   html.js .phase.is-visible .phase__point { animation: none; }
   html.js .phase.is-visible .phase__fill::after { animation: none; }
+}
+
+/* ============================================================================
+   25. STRUCTURE FIELD  (the complex behind every page, lit by the scroll)
+   One decorative layer, held at the back of every page: a peptide sitting in
+   the groove of an MHC molecule, with a receptor above it. The image is
+   recoloured into the brand ramp (Indigo through Nebula and Aurora to Signal)
+   so it reads as field rather than photograph, and it is held far enough down
+   in opacity that it never competes with type.
+
+   A soft light travels down the form as the reader scrolls, so the structure
+   is never fully revealed at once: darkness is the field, and the signal is
+   rare and bright. The light is a masked radial gradient moved by transform
+   alone, so the effect costs one compositor operation per frame.
+
+   Decorative only. The markup is aria-hidden, the layer sits behind all
+   content, and under reduced motion the light simply holds still.
+   ========================================================================== */
+.structure {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+
+  /* Placement is declared once, so the lit layer and its mask stay in
+     register with the form beneath it. */
+  --struct-src:  url("assets/structure.webp");
+  --struct-size: auto 118%;
+  --struct-pos:  right -11vw center;
+
+  /* JS overrides both: the travelling light, and a shallow counter-drift.
+     The default parks the light low in the view, clear of the headings, which
+     is what a reader without JavaScript sees. */
+  --lit: 48vh;
+  --struct-drift: 0px;
+
+  transform: translate3d(0, var(--struct-drift), 0);
+}
+
+/* --- 25.1 The form: the whole structure, barely there ---------------------- */
+.structure__form {
+  position: absolute;
+  inset: 0;
+  background-image: var(--struct-src);
+  background-repeat: no-repeat;
+  background-position: var(--struct-pos);
+  background-size: var(--struct-size);
+  opacity: 0.085;
+}
+
+/* --- 25.2 The light: a beam clipped to the structure itself ---------------- */
+.structure__glow {
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  display: none;   /* only enabled where masking is supported, see below */
+  -webkit-mask-image: var(--struct-src);
+          mask-image: var(--struct-src);
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: var(--struct-pos);
+          mask-position: var(--struct-pos);
+  -webkit-mask-size: var(--struct-size);
+          mask-size: var(--struct-size);
+}
+@supports ((-webkit-mask-image: linear-gradient(#000, #000)) or (mask-image: linear-gradient(#000, #000))) {
+  .structure__glow { display: block; }
+}
+
+.structure__beam {
+  position: absolute;
+  left: -30%;
+  right: -30%;
+  top: 0;
+  height: 62vh;
+  background: radial-gradient(52% 50% at 50% 50%,
+    rgba(167, 139, 250, 0.55) 0%,
+    rgba(124, 58, 237, 0.26) 42%,
+    rgba(124, 58, 237, 0) 72%);
+  transform: translate3d(0, var(--lit), 0);
+  will-change: transform;
+}
+
+/* --- 25.3 Letting the field read through the page -------------------------- */
+/* Generic section surfaces and the footer carry a trace of transparency, so
+   the structure runs continuously down the page rather than appearing only in
+   the gaps between sections. Cards and panels stay fully opaque, which keeps
+   them floating clearly above the field. Both values are the existing tokens,
+   Deep Space and Void, and text contrast is unchanged for practical purposes. */
+
+/* --- 25.4 Responsive ------------------------------------------------------- */
+@media (max-width: 900px) {
+  .structure {
+    --struct-size: auto 76%;
+    --struct-pos: right -16vw center;
+  }
+  .structure__form { opacity: 0.08; }
+  .structure__glow { opacity: 0.45; }
+}
+
+/* --- 25.5 Reduced motion --------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .structure { transform: none !important; }
+  .structure__beam { transform: translate3d(0, 48vh, 0) !important; }
+}
+
+@media print {
+  .structure { display: none; }
 }

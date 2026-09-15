@@ -45,6 +45,7 @@ openimmune/
     icon-512.png
     field.svg             Point field used behind the hero
     field-soft.svg        Sparser field for sub-pages
+    structure.webp        The complex behind every page, recoloured to the palette
     og-image.png          1200x630 social share image
 ```
 
@@ -220,8 +221,13 @@ JavaScript.
   the cursor; a thin aurora line at the top of the window tracks reading
   position; and small aurora ticks draw in beside each item in "Why it matters".
 
-To tune or remove any of this, see `17. ELEVATION LAYER` in `styles.css` and the
-numbered modules in `script.js`.
+- **The structure field.** Behind every page, a peptide sitting in the groove of
+  an MHC molecule, held far down in opacity so it reads as field rather than
+  picture. A soft light travels down it as you scroll, so the form is never
+  revealed all at once. Without JavaScript the light simply sits low and still.
+
+To tune or remove any of this, see `17. ELEVATION LAYER` and `25. STRUCTURE
+FIELD` in `styles.css`, and the numbered modules in `script.js`.
 
 ---
 
