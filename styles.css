@@ -2640,15 +2640,16 @@ html.js .phase.is-visible .phase__fill::after {
 /* ============================================================================
    25. STRUCTURE FIELD  (the complex behind every page, lit by the scroll)
    One decorative layer, held at the back of every page: a peptide sitting in
-   the groove of an MHC molecule, with a receptor above it. The image is
-   recoloured into the brand ramp (Indigo through Nebula and Aurora to Signal)
-   so it reads as field rather than photograph, and it is held far enough down
-   in opacity that it never competes with type.
+   the groove of an MHC molecule, with a receptor above it. The render is used
+   as it came, at its own colours and its own alpha, because it already sits in
+   the palette; the layer's opacity is what holds it back, not a recolour.
 
-   A soft light travels down the form as the reader scrolls, so the structure
-   is never fully revealed at once: darkness is the field, and the signal is
-   rare and bright. The light is a masked radial gradient moved by transform
-   alone, so the effect costs one compositor operation per frame.
+   The layer rises from the right edge and is faded out across the middle of the
+   view, so the structure never reaches the text column however wide the window
+   is. A soft light then travels down the form as the reader scrolls, so it is
+   never fully revealed at once: darkness is the field, and the signal is rare
+   and bright. The light is a masked radial gradient moved by transform alone,
+   so the effect costs one compositor operation per frame.
 
    Decorative only. The markup is aria-hidden, the layer sits behind all
    content, and under reduced motion the light simply holds still.
@@ -2663,15 +2664,26 @@ html.js .phase.is-visible .phase__fill::after {
   /* Placement is declared once, so the lit layer and its mask stay in
      register with the form beneath it. */
   --struct-src:  url("assets/structure.webp");
-  --struct-size: auto 118%;
-  --struct-pos:  right -11vw center;
+  --struct-size: auto 132%;
+  --struct-pos:  right -3vw center;
 
-  /* JS overrides both: the travelling light, and a shallow counter-drift.
-     The default parks the light low in the view, clear of the headings, which
-     is what a reader without JavaScript sees. */
+  /* The horizontal fade that keeps the structure off the text column. It masks
+     the whole layer, so the form and the light dissolve together. */
+  -webkit-mask-image: linear-gradient(to right,
+    transparent 33%, rgba(0, 0, 0, 0.3) 57%, #000 82%);
+          mask-image: linear-gradient(to right,
+    transparent 33%, rgba(0, 0, 0, 0.3) 57%, #000 82%);
+
+  /* JS overrides all three: the travelling light, a shallow counter-drift, and
+     the fade-in that keeps the structure back while the hero is on screen, so
+     the aperture stays the one luminous moment there. The defaults are what a
+     reader without JavaScript sees: the light parked low, clear of the
+     headings, and the layer held a little below full strength. */
   --lit: 48vh;
   --struct-drift: 0px;
+  --struct-in: 0.7;
 
+  opacity: var(--struct-in);
   transform: translate3d(0, var(--struct-drift), 0);
 }
 
@@ -2683,14 +2695,14 @@ html.js .phase.is-visible .phase__fill::after {
   background-repeat: no-repeat;
   background-position: var(--struct-pos);
   background-size: var(--struct-size);
-  opacity: 0.085;
+  opacity: 0.4;
 }
 
 /* --- 25.2 The light: a beam clipped to the structure itself ---------------- */
 .structure__glow {
   position: absolute;
   inset: 0;
-  opacity: 0.5;
+  opacity: 0.78;
   display: none;   /* only enabled where masking is supported, see below */
   -webkit-mask-image: var(--struct-src);
           mask-image: var(--struct-src);
@@ -2727,18 +2739,38 @@ html.js .phase.is-visible .phase__fill::after {
    Deep Space and Void, and text contrast is unchanged for practical purposes. */
 
 /* --- 25.4 Responsive ------------------------------------------------------- */
-@media (max-width: 900px) {
+/* Narrower windows put the text across the full width, so the structure is
+   smaller, pushed further off the edge, and faded out sooner. */
+@media (max-width: 1100px) {
   .structure {
-    --struct-size: auto 76%;
-    --struct-pos: right -16vw center;
+    --struct-size: auto 108%;
+    --struct-pos: right -8vw center;
+    -webkit-mask-image: linear-gradient(to right,
+      transparent 40%, rgba(0, 0, 0, 0.3) 64%, #000 88%);
+            mask-image: linear-gradient(to right,
+      transparent 40%, rgba(0, 0, 0, 0.3) 64%, #000 88%);
   }
-  .structure__form { opacity: 0.08; }
-  .structure__glow { opacity: 0.45; }
+  .structure__form { opacity: 0.34; }
+}
+
+/* On a phone there is no side margin to hide in, so the structure gathers in
+   the bottom corner and dissolves inwards from there instead. */
+@media (max-width: 760px) {
+  .structure {
+    --struct-size: auto 54vh;
+    --struct-pos: right -8vw bottom -5vh;
+    -webkit-mask-image: radial-gradient(125% 85% at 100% 100%,
+      #000 0%, rgba(0, 0, 0, 0.62) 42%, transparent 74%);
+            mask-image: radial-gradient(125% 85% at 100% 100%,
+      #000 0%, rgba(0, 0, 0, 0.62) 42%, transparent 74%);
+  }
+  .structure__form { opacity: 0.5; }
+  .structure__glow { opacity: 0.6; }
 }
 
 /* --- 25.5 Reduced motion --------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
-  .structure { transform: none !important; }
+  .structure { transform: none !important; opacity: 0.8 !important; }
   .structure__beam { transform: translate3d(0, 48vh, 0) !important; }
 }
 

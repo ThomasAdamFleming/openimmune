@@ -349,6 +349,11 @@
         (ratio * (vh + beamH) - beamH).toFixed(1) + "px");
       structure.style.setProperty("--struct-drift",
         (ratio * vh * -0.05).toFixed(1) + "px");
+      /* Hold the layer back over the first screen, so a hero keeps its own
+         luminous moment and the structure rises into the page behind it. */
+      var entered = Math.min(1, window.scrollY / (vh * 0.9));
+      structure.style.setProperty("--struct-in",
+        (0.3 + 0.7 * entered).toFixed(3));
       sTicking = false;
     };
 
