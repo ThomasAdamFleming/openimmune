@@ -820,6 +820,37 @@ a { color: var(--accent-soft); }
 }
 .contact-aside .channels b { color: var(--accent-soft); font-weight: 500; min-width: 7.5rem; display: inline-block; }
 
+/* Registered office. A real h2 for structure and deep linking, set at label
+   scale so it sits under the channels list rather than competing with it. */
+.contact-legal {
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--border);
+}
+.contact-legal h2 {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+  margin: 0 0 var(--space-4);
+}
+.contact-legal__addr {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+.contact-legal__reg {
+  margin: var(--space-4) 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  line-height: 1.7;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+}
+
 .form {
   background: var(--panel);
   border: 1px solid var(--border);
@@ -921,6 +952,23 @@ a { color: var(--accent-soft); }
 }
 .footer-meta a { color: var(--text); text-decoration: none; }
 .footer-meta .copyright { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-faint); letter-spacing: 0.04em; }
+
+/* Statutory entity disclosure: full width beneath the two footer columns.
+   Quiet by design. Required on every page by the Companies (Trading
+   Disclosures) Regulations, so it carries no accent of its own. */
+.footer-legal {
+  flex-basis: 100%;
+  margin: 0;
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  line-height: 1.75;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);   /* legible, not Dust: this line has to be readable */
+}
+.footer-legal__text { display: block; max-width: 82ch; }
+.footer-legal b { color: var(--text); font-weight: 500; }
 
 /* ----------------------------------------------------------------------------
    15. MOTION
